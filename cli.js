@@ -29,7 +29,7 @@ const data = await response.json();
 
 const days = args.d;
 
-if(data.daily.preceiptation_hours[days] > 0){
+if(data.daily.precipitation_hours[days] > 0){
 	console.log("You might need your galoshes ")
 } else {
 	console.log("You probably won't need your galoshes ")
