@@ -27,6 +27,11 @@ const timezone = moment.tz.guess();
 const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=' + latitude + '&longitude=' + longitude + '&daily=precipitation_hours' + '&timezone=' + timezone);
 const data = await response.json();
 
+if(args.j){
+	console.log(data);
+	process.exit(0);
+}
+
 const days = args.d;
 
 if(data.daily.precipitation_hours[days] > 0){
@@ -41,11 +46,6 @@ if(days == 0){
 	console.log("in " + days + " days.")
 } else {
 	console.log("tomorrow.")
-}
-
-if(args.j){
-	console.log(data)
-	process.exit(0)
 }
 
 
